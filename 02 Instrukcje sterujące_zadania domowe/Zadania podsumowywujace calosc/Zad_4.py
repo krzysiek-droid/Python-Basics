@@ -8,13 +8,24 @@
 
 import random
 
-user_choice = input("Podaj jedna z figur: kamień (k), papier (p) czy nożyce (n)?: ")
 program_choice = "kpn"
 variable = random.randrange(0,2,1)
+program_points = 0
+user_points = 0
 
-if user_choice == program_choice[variable]:
-    print("brawo")
-    print("Program wylosował {}".format(program_choice[variable]))
-else:
-    print("sprobuj ponownie")
-    print("Program wylosował {}".format(program_choice[variable]))
+rounds = int(input("Podaj liczbę rund: "))
+
+for i in range(rounds):
+    user_choice = input("\nPodaj jedna z figur: kamień (k), papier (p) czy nożyce (n)?: ")
+    if user_choice == program_choice[variable]:
+        user_points = user_points + 1
+        print("Punkt dla Ciebie!")
+        print("Program wylosował ({})".format(program_choice[variable]))
+    else:
+        program_points = program_points + 1
+        print("Komputer Cię pokonał!")
+        print("Program wylosował ({})".format(program_choice[variable]))
+    end = input("Jeśli chcesz zakończyć, wpisz \'koniec\', jeśli nie wcisnij enter :")
+    if end == "koniec":
+        break
+    print("Stan gry:\n\tUżytkownik wygrał {} rund \tKomputer wygrał {} rund".format(user_points,program_points))

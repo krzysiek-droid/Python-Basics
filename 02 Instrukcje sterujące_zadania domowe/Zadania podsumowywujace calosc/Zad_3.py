@@ -7,6 +7,7 @@ upper_cases = 0
 digits = 0
 marks = 0
 space = 0
+
 for i in text:
     if i.islower():
         lower_cases = lower_cases + 1
