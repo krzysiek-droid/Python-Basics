@@ -18,4 +18,3 @@ for i in range(len(rand_tuple)):
 
 print(f"Lista elementów powtórzonych w krotce: {repeated_list}")
 
-#nie używałem kolekcji set do wyświetlenia ilości powtórzeń, ponieważ zadanie jest nt. krotek :)
