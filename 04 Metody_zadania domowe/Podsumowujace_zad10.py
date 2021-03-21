@@ -36,7 +36,7 @@ hangman = '_ '*len(chosen_word)
 print(f'Wylosowano słow na {len(chosen_word)} liter:\t',hangman)
 rounds = 10
 
-for i in range(10):
+for i in range(rounds):
     user_letter = input('Podaj swoją literę: ')
     if is_in_word(user_letter, chosen_word):
         print(f'Trafione!')
