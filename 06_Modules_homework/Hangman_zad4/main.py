@@ -33,5 +33,5 @@ while not hangman.find("_") == -1:
     rounds += 1
 else:
     print("*" * 90)
-    print(f"You have guessed the word {hangman.upper()} on {rounds} rounds! Good Job mate :)".center(90))
+    print(f"You have guessed the word {hangman.upper()} in {rounds} rounds! Good Job mate :)".center(90))
     print("*" * 90)
