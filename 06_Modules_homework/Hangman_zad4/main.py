@@ -4,7 +4,6 @@ import random
 import hangman_module as hm
 
 rounds = 1  # number of rounds handler
-op = False  # game option handler, False - Game on, True - Finish Game
 
 avaiable_words = open('hangman_words_database', 'r') #Opens the hangman words database in order to choose a word
 avaiable_words = list(avaiable_words)
