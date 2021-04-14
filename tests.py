@@ -9,3 +9,6 @@ def party_planner(cookies, people):
     leftovers = cookies % people
 
     return (num_each, leftovers)
+
+if __name__ == "__main__":
+    party_planner(3, 0)
