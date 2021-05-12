@@ -72,7 +72,7 @@ class BJ_Player(BJ_Hand):
 
     def is_hitting(self):
         response = gms.ask_yes_no("\n" + self.name + ", chcesz dobrać kartę? (T/N): ")
-        return response == "t"
+        return response
 
     def bust(self):
         print(self.name, "ma furę.")
@@ -125,7 +125,7 @@ class BJ_Game(object):
         return sp
 
     def __additional_cards(self, player):
-        while not player.is_busted() and player.is_hitting():
+        while not player.is_busted() and player.is_hitting() == 't':
             self.deck.deal([player])
             print(player)
             if player.is_busted():
@@ -178,10 +178,16 @@ class BJ_Game(object):
 def main():
     print("\t\tWitaj w grze 'Blackjack'!\n")
     names = []
+
     number = gms.ask_number("Podaj liczbę graczy (1 - 7): ", low = 1, high = 8)
 
     for i in range(number):
-        name = input("Wprowadź nazwę gracza: ")
+        name = str(input(f"Wprowadź nazwę gracza nr {i+1}: ")).capitalize()
+        try:
+            if name[0].isdigit():
+                raise ValueError
+        except ValueError:
+            print("Nazwa nie może zaczynać się od cyfry!")
         names.append(name)
         print()
 

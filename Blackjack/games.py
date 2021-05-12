@@ -15,14 +15,22 @@ def ask_yes_no(question):
     """Zadaj pytanie, na które można odpowiedzieć tak lub nie."""
     response = None
     while response not in ("t", "n"):
-        response = input(question).lower()
+        try:
+            response = input(question).lower()
+            if response not in ('t', 'n'):
+                raise ValueError
+        except ValueError:
+            print("Musisz się zdecydować, tak (T) czy nie (N)?")
     return response
 
 def ask_number(question, low, high):
     """Poproś o podanie liczby z określonego zakresu."""
     response = None
     while response not in range(low, high):
-        response = int(input(question))
+        try:
+            response = int(input(question))
+        except ValueError:
+            print("Podaj liczbę zamiast litery bądź znaku. ")
     return response
 
 
