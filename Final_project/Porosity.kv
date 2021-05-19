@@ -1,0 +1,19 @@
+#:kivy 2.0.0
+
+<PorosityLayout>
+    id: porosity_widget
+    BoxLayout:
+        id: porosity_widget
+        orientation: "vertical"
+        size: root.width, root.height
+
+        padding: 50
+        spacing: 20
+
+        Image:
+            id: my_image
+            source: ""
+
+        FileChooserIconView:
+            id: filechooser
+            on_selection: porosity_widget.selected(filechooser.selection)
