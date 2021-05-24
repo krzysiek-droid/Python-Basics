@@ -1,19 +1,137 @@
 #:kivy 2.0.0
+#:import utils kivy.utils
 
-<PorosityLayout>
-    id: porosity_widget
+<Button>:
+    font_size: 13
+    #background_normal resetuje kolor przycisku - standardowo jest szary, przez co nadanie koloru powoduje wymieszanie go z szarym
+    background_normal: ''
+
+    #kolor w odniesieniu do RGB + przezroczystosc (opacity), można ustawiać nadając X/255.0 - musi byc typu float
+    background_color: (69/255.0, 74/255.0, 82/255.0, .8)
+
+    #utils to biblioteka która posiada metode zaciągającą kolor z jego kodu HEX:
+    #background_color: utils.get_color_from_hex('#ffa12e')
+
+
+<First_window>:
+    name: "first_window"
+    id: interface_name
+
     BoxLayout:
-        id: porosity_widget
+        text: "First window"
+        size: root.size
+        pos: root.pos
+
+        orientation: 'vertical'
+        spacing: 10
+        padding: 30
+
+        BoxLayout:
+            orientation: 'horizontal'
+            #pos_hint: {"x": 1, "top": 0.5}
+
+            Label:
+                text: "Wczytaj dane"
+                size: (100, 50)
+                size_hint: (None, None)
+                font_size: 13
+                background_color: (0, 0, 0, 1)
+                canvas.before:
+                    Color:
+                        rgba: self.background_color
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                #text proporties
+                color: (1, 1, 1, 1)
+                bold: True
+                italic: True
+                outline_color: (0, 0, 0)
+                outline_width: 5
+
+            Button:
+                text: "Select a file"
+                size: (100, 50)
+                size_hint: (None, None)
+                on_release: root.manager.current = 'filechooser'
+#        Label:
+#            id: filepath_UI
+#            text: f'Ścieżka do wybranego pliku: {filepath_UI}'
+#            size: (100, 50)
+#            size_hint: (None, None)
+#            pos: root.pos
+#            font_size: 13
+#            background_color: (0, 0, 0, 1)
+#            canvas.before:
+#                Color:
+#                    rgba: self.background_color
+#                Rectangle:
+#                    size: self.size
+#                    pos: self.pos
+#            #text proporties
+#            color: (1, 1, 1, 1)
+#            bold: True
+#            italic: True
+#            outline_color: (0, 0, 0)
+#            outline_width: 5
+
+<Filechooser>:
+    name: "filechooser"
+    id: filechooser_name
+
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        spacing: 10
+        padding: 10
+
+        BoxLayout:
+            FileChooserIconView:
+                dirselect: True
+                on_selection: filename = root.select(*args)
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: (1, 0.2)
+
+            Label:
+                id: filename
+
+                text: f'Ścieżka pliku: {filename}'
+                pos_hint: {"center_x": .5}
+                size_hint: (0.5, 0.5)
+
+            Button:
+                text: "Select file"
+                size: (100, 50)
+                size_hint: (None, None)
+                # on_release: root.dismiss()
+
+
+<Select_alg>:
+    name: "Select_alg"
+    id: Select_alg
+
+    BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
 
-        padding: 50
-        spacing: 20
-
-        Image:
-            id: my_image
-            source: ""
-
-        FileChooserIconView:
-            id: filechooser
-            on_selection: porosity_widget.selected(filechooser.selection)
+        spacing: 10
+        padding: 10
+            Button:
+                text: "First algorythm"
+                size: (100, 50)
+                size_hint: (None, None)
+            Button:
+                text: "Second algorythm"
+                size: (100, 50)
+                size_hint: (None, None)
+            Button:
+                text: "Thrid algorythm"
+                size: (100, 50)
+                size_hint: (None, None)
+            Button:
+                text: "Fourth algorythm"
+                size: (100, 50)
+                size_hint: (None, None)
