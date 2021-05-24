@@ -5,6 +5,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.popup import Popup
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.boxlayout import  BoxLayout
 
 # requirement for kivy version
 kivy.require("2.0.0")

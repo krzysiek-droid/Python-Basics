@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="update">
+    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="screenmanager added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/Porosity.kv" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/Porosity.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final_project/porosity.kv.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621447868440</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="screenmanager added">
+      <created>1621884455537</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1621884455537</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +257,8 @@
     <MESSAGE value="BlackJack error handling" />
     <MESSAGE value="War_game added" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="screenmanager added" />
+    <option name="LAST_COMMIT_MESSAGE" value="screenmanager added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
