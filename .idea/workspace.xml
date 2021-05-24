@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="screenmanager added">
+    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="Thrid screen added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/Porosity.kv" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/Porosity.kv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final_project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -224,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621884455537</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Thrid screen added">
+      <created>1621885604628</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1621885604628</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +265,8 @@
     <MESSAGE value="War_game added" />
     <MESSAGE value="update" />
     <MESSAGE value="screenmanager added" />
-    <option name="LAST_COMMIT_MESSAGE" value="screenmanager added" />
+    <MESSAGE value="Thrid screen added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Thrid screen added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -17,63 +17,43 @@
     name: "first_window"
     id: interface_name
 
-    BoxLayout:
-        text: "First window"
-        size: root.size
-        pos: root.pos
+    FloatLayout:
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        Label:
+            size_hint: 1, .2
+            pos_hint: {"y": 0.6}
+            text: "Witamy w programie do tworzenia histogramów z plików .csv!"
 
-        orientation: 'vertical'
-        spacing: 10
-        padding: 30
+        FloatLayout:
+            pos_hint: {'center_x': .5, 'center_y': .5}
 
-        BoxLayout:
-            orientation: 'horizontal'
-            #pos_hint: {"x": 1, "top": 0.5}
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: .3, .1
+                pos_hint: {"x": 0.35, 'y': 0.4}
 
-            Label:
-                text: "Wczytaj dane"
-                size: (100, 50)
-                size_hint: (None, None)
-                font_size: 13
-                background_color: (0, 0, 0, 1)
-                canvas.before:
-                    Color:
-                        rgba: self.background_color
-                    Rectangle:
-                        size: self.size
-                        pos: self.pos
-                #text proporties
-                color: (1, 1, 1, 1)
-                bold: True
-                italic: True
-                outline_color: (0, 0, 0)
-                outline_width: 5
+                Label:
+                    text: "Wczytaj dane"
+                    size_hint: 0.7, 1
 
-            Button:
-                text: "Select a file"
-                size: (100, 50)
-                size_hint: (None, None)
-                on_release: root.manager.current = 'filechooser'
-#        Label:
-#            id: filepath_UI
-#            text: f'Ścieżka do wybranego pliku: {filepath_UI}'
-#            size: (100, 50)
-#            size_hint: (None, None)
-#            pos: root.pos
-#            font_size: 13
-#            background_color: (0, 0, 0, 1)
-#            canvas.before:
-#                Color:
-#                    rgba: self.background_color
-#                Rectangle:
-#                    size: self.size
-#                    pos: self.pos
-#            #text proporties
-#            color: (1, 1, 1, 1)
-#            bold: True
-#            italic: True
-#            outline_color: (0, 0, 0)
-#            outline_width: 5
+                    font_size: 13
+                    background_color: (0, 0, 0, 1)
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    #text proporties
+                    color: (1, 1, 1, 1)
+                    bold: True
+                    italic: True
+                    outline_color: (0, 0, 0)
+                    outline_width: 5
+
+                Button:
+                    text: "Select a file"
+                    on_release: root.manager.current = 'filechooser'
 
 <Filechooser>:
     name: "filechooser"
@@ -113,17 +93,23 @@
     name: "Select_alg"
     id: Select_alg
 
-    BoxLayout:
-        orientation: "vertical"
-        spacing: 10
-        padding: 10
+    FloatLayout:
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        Label:
+            size_hint: 1, .2
+            pos_hint: {"y": 0.8}
+            text: "Wybierz algorytm, którym chcesz posortować dane:"
 
         BoxLayout:
             orientation: "vertical"
-
-
+            size_hint: .3, .5
+            pos_hint: {"x": .35, "y": .25}
             spacing: 10
             Button:
                 text: "First algorythm"
-                size: (100, 60)
-                size_hint: (None, None)
+            Button:
+                text: "Second algorythm"
+            Button:
+                text: "Third algorythm"
+            Button:
+                text: "Fourth algorythm"
