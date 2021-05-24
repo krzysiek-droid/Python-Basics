@@ -19,7 +19,10 @@ Window.size = (750, 500)
 
 # Screen with algorythm chose
 class Select_alg(Screen):
-    pass
+    def __init__(self):
+        super(Select_alg, self).__init__()
+        self.filepath = ' '
+
 
 
 class WindowManager(ScreenManager):
@@ -56,9 +59,13 @@ class PorosityApp(App):
     def build(self):
         screen_manager = ScreenManager()
         screen_manager.add_widget(First_window(name='first_window'))
+
         file_chooser = Filechooser()
         screen_manager.add_widget(file_chooser)
+        filepath = file_chooser.filepath
+
         algorithm = Select_alg()
+        # algorithm.filepath = filepath
         screen_manager.add_widget(algorithm)
 
         return screen_manager

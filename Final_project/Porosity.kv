@@ -32,28 +32,11 @@
                 size_hint: .3, .1
                 pos_hint: {"x": 0.35, 'y': 0.4}
 
-                Label:
-                    text: "Wczytaj dane"
-                    size_hint: 0.7, 1
-
-                    font_size: 13
-                    background_color: (0, 0, 0, 1)
-                    canvas.before:
-                        Color:
-                            rgba: self.background_color
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    #text proporties
-                    color: (1, 1, 1, 1)
-                    bold: True
-                    italic: True
-                    outline_color: (0, 0, 0)
-                    outline_width: 5
-
                 Button:
                     text: "Select a file"
-                    on_release: root.manager.current = 'filechooser'
+                    on_release:
+                        root.manager.current = 'filechooser'
+                        root.manager.transition.direction = 'left'
 
 <Filechooser>:
     name: "filechooser"
@@ -73,20 +56,29 @@
 
         BoxLayout:
             orientation: 'horizontal'
-            size_hint: (1, 0.2)
+            size_hint: 1, 0.1
+
+            Button:
+                text: "Go back"
+                size_hint: 0.15, 1
+                on_release:
+                    root.manager.current = 'first_window'
+                    root.manager.transition.direction = "right"
 
             Label:
                 id: filename
-
                 text: f'Ścieżka pliku: {filename}'
                 pos_hint: {"center_x": .5}
-                size_hint: (0.5, 0.5)
+                size_hint: 0.7, 1
 
             Button:
                 text: "Select file"
-                size: (100, 50)
-                size_hint: (None, None)
-                on_release: root.manager.current = 'Select_alg'
+                size_hint: 0.15, 1
+                on_release:
+                    self.filepath = filename
+                    root.manager.current = 'Select_alg'
+                    root.manager.transition.direction = 'left'
+                    print(self.filepath)
 
 
 <Select_alg>:
@@ -95,10 +87,15 @@
 
     FloatLayout:
         pos_hint: {'center_x': .5, 'center_y': .5}
-        Label:
+
+        BoxLayout:
+            orientation: 'vertical'
             size_hint: 1, .2
             pos_hint: {"y": 0.8}
-            text: "Wybierz algorytm, którym chcesz posortować dane:"
+            Label:
+                text: f"Wybrana ścieżka do pliku: {self.filepath}" #TODO Naprawić przekazanie i dostęp do wybranej ścieżki
+            Label:
+                text: "Wybierz algorytm, którym chcesz posortować dane:"
 
         BoxLayout:
             orientation: "vertical"
@@ -113,3 +110,7 @@
                 text: "Third algorythm"
             Button:
                 text: "Fourth algorythm"
+
+        Label:
+            size_hint: 1, .2
+            text: "Od wyboru algorytmu zależeć będzie czas sortowania danych. Wybierz mądrze! :)"
