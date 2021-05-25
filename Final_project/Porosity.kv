@@ -14,8 +14,6 @@
 
 
 <First_window>:
-    name: "first_window"
-    id: interface_name
 
     FloatLayout:
         pos_hint: {'center_x': .5, 'center_y': .5}
@@ -40,7 +38,6 @@
 
 <Filechooser>:
     name: "filechooser"
-    id: filechooser_name
 
     BoxLayout:
         orientation: 'vertical'
@@ -52,7 +49,7 @@
         BoxLayout:
             FileChooserIconView:
                 dirselect: True
-                on_selection: filename = root.select(*args)
+                on_selection: root.select(*args)
 
         BoxLayout:
             orientation: 'horizontal'
@@ -67,7 +64,7 @@
 
             Label:
                 id: filename
-                text: f'Ścieżka pliku: {filename}'
+                text: f'Brak wybranej ścieżki, wybierz plik.'
                 pos_hint: {"center_x": .5}
                 size_hint: 0.7, 1
 
@@ -75,16 +72,18 @@
                 text: "Select file"
                 size_hint: 0.15, 1
                 on_release:
-                    self.filepath = filename
-                    root.manager.current = 'Select_alg'
+                    root.save_path()
+                    print(root.file_path)
+                    root.manager.filepath = root.file_path
+                    print(root.manager.filepath)
+                    root.manager.current = 'sorting_algorithms'
                     root.manager.transition.direction = 'left'
-                    print(self.filepath)
 
 
-<Select_alg>:
-    name: "Select_alg"
-    id: Select_alg
 
+<sorting_algorithms>:
+    name: "sorting_algorithms"
+    on_enter: filepath.text = root.manager.filepath
     FloatLayout:
         pos_hint: {'center_x': .5, 'center_y': .5}
 
@@ -92,8 +91,14 @@
             orientation: 'vertical'
             size_hint: 1, .2
             pos_hint: {"y": 0.8}
-            Label:
-                text: f"Wybrana ścieżka do pliku: {self.filepath}" #TODO Naprawić przekazanie i dostęp do wybranej ścieżki
+
+            BoxLayout:
+                FloatLayout:
+                    Label:
+                        size_hint: 0.3, 1
+                        text: "Wybrany plik: "
+                    Label:
+                        id: filepath
             Label:
                 text: "Wybierz algorytm, którym chcesz posortować dane:"
 
@@ -104,6 +109,9 @@
             spacing: 10
             Button:
                 text: "First algorythm"
+                on_release:
+                    root.show_path()
+
             Button:
                 text: "Second algorythm"
             Button:

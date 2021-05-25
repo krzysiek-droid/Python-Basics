@@ -1,11 +1,9 @@
 import kivy
 from kivy.app import App
-from kivy.lang import Builder
-from kivy.uix.widget import Widget
-from kivy.uix.popup import Popup
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.boxlayout import  BoxLayout
+from kivy.uix.widget import Widget
+from kivy.event import EventDispatcher
 
 # requirement for kivy version
 kivy.require("2.0.0")
@@ -17,55 +15,56 @@ kivy.require("2.0.0")
 Window.size = (750, 500)
 
 
-# Screen with algorythm chose
-class Select_alg(Screen):
-    def __init__(self):
-        super(Select_alg, self).__init__()
-        self.filepath = ' '
-
-
-
-class WindowManager(ScreenManager):
-    pass
-
-
 # screen with filechooser
 class Filechooser(Screen):
     def __init__(self):
-        super(Filechooser, self).__init__()
-        self.filepath = " "
-        self.is_selected = False
+        super().__init__()
+        self.file_path = ' filechooser_path '
 
     def select(self, *args):
         try:
-            self.filepath = self.ids.filename.text = args[1][0]
+            self.ids.filename.text = args[1][0]
         except:
             pass
 
     def save_path(self):
-        try:
-            self.is_selected = True
-            self.filepath = self.ids.filename.text
-            print(self.filepath)
-        except:
-            pass
+        self.file_path = self.ids.filename.text
+
+
+# Screen with algorithm chose
+class sorting_algorithms(Screen):
+    def __init__(self, ):
+        super().__init__()
+        self.filepath = ' initialized path '
+
+
+    def set_filepath(self, value):
+        self.filepath = value
+        self.ids.filepath.text = value
+
+    def show_path(self):
+        self.ids.filepath.text = "sorting_algorithm"
+
+
+class WindowManager(ScreenManager):
+    filepath = ''
+    pass
 
 
 # first screen poping up when initilized
 class First_window(Screen):
     pass
 
+
 class PorosityApp(App):
     def build(self):
-        screen_manager = ScreenManager()
+        screen_manager = WindowManager()
         screen_manager.add_widget(First_window(name='first_window'))
 
         file_chooser = Filechooser()
         screen_manager.add_widget(file_chooser)
-        filepath = file_chooser.filepath
 
-        algorithm = Select_alg()
-        # algorithm.filepath = filepath
+        algorithm = sorting_algorithms()
         screen_manager.add_widget(algorithm)
 
         return screen_manager
