@@ -13,7 +13,7 @@
     #background_color: utils.get_color_from_hex('#ffa12e')
 
 
-<First_window>:
+<Welcome_screen>:
 
     FloatLayout:
         pos_hint: {'center_x': .5, 'center_y': .5}
@@ -30,56 +30,13 @@
                 size_hint: .3, .1
                 pos_hint: {"x": 0.35, 'y': 0.4}
 
+                # select a filepath for .csv file
                 Button:
                     text: "Select a file"
-                    on_release:
-                        root.manager.current = 'filechooser'
+                    on_press:
+                        root.manager.filepath = root.open_filechooser()
+                        root.manager.current = 'sorting_algorithms'
                         root.manager.transition.direction = 'left'
-
-<Filechooser>:
-    name: "filechooser"
-
-    BoxLayout:
-        orientation: 'vertical'
-        size: root.width, root.height
-
-        spacing: 10
-        padding: 10
-
-        BoxLayout:
-            FileChooserIconView:
-                dirselect: True
-                on_selection: root.select(*args)
-
-        BoxLayout:
-            orientation: 'horizontal'
-            size_hint: 1, 0.1
-
-            Button:
-                text: "Go back"
-                size_hint: 0.15, 1
-                on_release:
-                    root.manager.current = 'first_window'
-                    root.manager.transition.direction = "right"
-
-            Label:
-                id: filename
-                text: f'Brak wybranej ścieżki, wybierz plik.'
-                pos_hint: {"center_x": .5}
-                size_hint: 0.7, 1
-
-            Button:
-                text: "Select file"
-                size_hint: 0.15, 1
-                on_release:
-                    root.save_path()
-                    print(root.file_path)
-                    root.manager.filepath = root.file_path
-                    print(root.manager.filepath)
-                    root.manager.current = 'sorting_algorithms'
-                    root.manager.transition.direction = 'left'
-
-
 
 <sorting_algorithms>:
     name: "sorting_algorithms"
@@ -93,12 +50,14 @@
             pos_hint: {"y": 0.8}
 
             BoxLayout:
-                FloatLayout:
-                    Label:
-                        size_hint: 0.3, 1
-                        text: "Wybrany plik: "
-                    Label:
-                        id: filepath
+                orientation: 'horizontal'
+                size_hint: 0.5, 1
+                pos_hint: {"center_x": 0.5, "y": 1}
+                Label:
+                    size_hint: 0.3, 1
+                    text: "Wybrany plik: "
+                Label:
+                    id: filepath
             Label:
                 text: "Wybierz algorytm, którym chcesz posortować dane:"
 
@@ -108,17 +67,26 @@
             pos_hint: {"x": .35, "y": .25}
             spacing: 10
             Button:
-                text: "First algorythm"
+                text: "Bubble sort"
+                on_release: root.manager.filepath = "bubble_sort"
+            Button:
+                text: "Merge sort"
+                on_release: root.manager.filepath = "merge_sort"
+            Button:
+                text: "Insertion sort"
+                on_release: root.manager.filepath = "insertion_sort"
+            Button:
+                text: "Selection sort"
+                on_release: root.manager.filepath = "selection_sort"
+            Button:
+                size_hint: .5, 1
+                pos_hint: {"x": 0.25}
+                text: "Go back"
                 on_release:
-                    root.show_path()
-
-            Button:
-                text: "Second algorythm"
-            Button:
-                text: "Third algorythm"
-            Button:
-                text: "Fourth algorythm"
-
+                    root.manager.current = 'welcome_screen'
+                    root.manager.transition.direction = 'right'
         Label:
             size_hint: 1, .2
             text: "Od wyboru algorytmu zależeć będzie czas sortowania danych. Wybierz mądrze! :)"
+
+
