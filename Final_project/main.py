@@ -45,11 +45,19 @@ class WindowManager(ScreenManager):
 class Histogram_screen(Screen):
     def __init__(self, filepath, algorithm):
         super(Histogram_screen, self).__init__()
+        #filepath to .csv file with data to be plotted
         self.file = filepath
+        #name of algorithm used for sorting of data
         self.selected_algorithm = algorithm
 
-    def plot_histogram(self):
-        pass
+    def load_values_from_csv(self, column_name:str):
+        fop = pd.read_csv(self.filepath, sep=",")
+        circ_values = fop.get(column_name)
+        circ_values = list(circ_values)
+        return circ_values
+
+    def sort_values(self):
+
 
 
 # App logic
