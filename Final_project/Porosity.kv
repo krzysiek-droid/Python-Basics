@@ -68,16 +68,28 @@
             spacing: 10
             Button:
                 text: "Bubble sort"
-                on_release: root.manager.filepath = "bubble_sort"
+                on_release:
+                    root.manager.chosen_algorithm = "bubble_sort"
+                    root.manager.current = 'histogram_screen'
+                    root.manager.transition.direction = 'left'
             Button:
                 text: "Merge sort"
-                on_release: root.manager.filepath = "merge_sort"
+                on_release:
+                    root.manager.chosen_algorithm = "merge_sort"
+                    root.manager.current = 'histogram_screen'
+                    root.manager.transition.direction = 'left'
             Button:
                 text: "Insertion sort"
-                on_release: root.manager.filepath = "insertion_sort"
+                on_release:
+                    root.manager.chosen_algorithm = "insertion_sort"
+                    root.manager.current = 'histogram_screen'
+                    root.manager.transition.direction = 'left'
             Button:
                 text: "Selection sort"
-                on_release: root.manager.filepath = "selection_sort"
+                on_release:
+                    root.manager.chosen_algorithm = "selection_sort"
+                    root.manager.current = 'histogram_screen'
+                    root.manager.transition.direction = 'left'
             Button:
                 size_hint: .5, 1
                 pos_hint: {"x": 0.25}
@@ -89,4 +101,13 @@
             size_hint: 1, .2
             text: "Od wyboru algorytmu zależeć będzie czas sortowania danych. Wybierz mądrze! :)"
 
+<Histogram_screen>:
+    name: 'histogram_screen'
+    on_enter:
+        print(root.manager.filepath)
+        print( root.manager.chosen_algorithm)
+        self.sort_values(root.manager.filepath, root.manager.chosen_algorithm)
+
+    FloatLayout:
+        pos_hint: {'center_x': .5, 'center_y': .5}
 
