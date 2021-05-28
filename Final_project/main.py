@@ -42,16 +42,23 @@ class sorting_algorithms(Screen):
 class WindowManager(ScreenManager):
     filepath = ''
     chosen_algorithm = ''
+    sorting_time = ''
+    data_array = None
     pass
 
 
-def load_values_from_csv(filepath):
-    fopen = pd.read_csv(filepath, sep=",")
-    values = fopen.get("Circ.")
+def load_values_from_csv(filepath, column_name):
+    fopen = pd.read_csv(filepath, sep=";")  # check if file is seperated by ";"
+    values = fopen.get(column_name)
     values = list(values)
-
-    return values
-
+    try:
+        if type(values) == list:
+            return values
+        else:
+            raise ValueError
+    except ValueError:
+        print(f"Imported Values are not of list type, {type(values)}"
+              f"Check if a proper separator is given to the method load_values_from_csv.")
 
 class Histogram_screen(Screen):
     def __init__(self):
@@ -61,8 +68,10 @@ class Histogram_screen(Screen):
 
     def sort_values(self, filepath, selected_algorithm):
 
-        values = load_values_from_csv(filepath)
-        print(values)
+        values = load_values_from_csv(filepath, "Circ.")
+
+        values = set(values)
+        values = list(values)
 
         if selected_algorithm == "bubble_sort":
             t0 = time.time()
@@ -81,6 +90,8 @@ class Histogram_screen(Screen):
         sorting_time = t1 - t0
         self.sorting_time = round(sorting_time, 5)
         self.data = sorted_values
+
+        return self.data, self.sorting_time
 
 
     # App logic

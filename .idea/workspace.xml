@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="Filepath passed betwean screens added">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_13_01__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_13_01__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_20_35__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_20_35__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/09_OOP_homework/T_4_mammals.py" beforeDir="false" afterPath="$PROJECT_DIR$/09_OOP_homework/T_4_mammals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/Porosity.kv" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/Porosity.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final_project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../python_projects" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
