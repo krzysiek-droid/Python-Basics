@@ -71,7 +71,7 @@ def load_values_from_csv(filepath, column_name):
 
 
 values = pd.read_csv("H11_PB1.1.csv", sep=';')
-values = values.get("Circ.")
-print(values)
-
+values = list(values.get("Circ."))
+plt.hist(x=values, bins= 10)
+plt.show()
 

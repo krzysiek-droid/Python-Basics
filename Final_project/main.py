@@ -1,8 +1,8 @@
 import kivy
 from kivy.config import value
-
 import sorting_algorithms_database as sad
-import numpy as np
+# import matplotlib
+# matplotlib.use('module://kivy.garden.matplotlib.backend.kivy')
 import matplotlib.pyplot as plt
 import pandas as pd
 import time
@@ -10,17 +10,12 @@ from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 from plyer import filechooser
-import os.path
 
 # requirement for kivy version
 kivy.require("2.0.0")
 
 # Prime window character
 Window.size = (750, 500)
-
-def path_normalization(path):
-    separated_path = path.split("'\'")
-    return separated_path
 
 
 # first screen popping up when app initialized
@@ -29,8 +24,6 @@ class Welcome_screen(Screen):
         # initialized filechooser of Windows type (thanks to plyer lib.)
         path = filechooser.open_file(title="Pick a .csv file",
                                      filters=[("Comma-separated values", "*.csv")])
-        #file_opened = pd.read_csv(path[0], sep=";")
-
         return path
 
 
@@ -77,10 +70,10 @@ class Histogram_screen(Screen):
         super().__init__()
         self.sorting_time = value
         self.sorted = value
-
+        self.filepath = value
 
     def sort_values(self, filepath, selected_algorithm):
-
+        self.filepath = filepath
         values = load_values_from_csv(filepath, "Circ.")
 
         # Data preparation - removing repeated values (for histogram purposes)
@@ -111,6 +104,18 @@ class Histogram_screen(Screen):
         self.sorted = sorted_values
 
         return self.sorting_time
+
+    def draw_hist(self, filepath, column_name):
+        # Data acquire
+        data = list(load_values_from_csv(filepath, column_name))
+
+        plt.hist(x=data, bins=10, alpha=0.5)
+        plt.title(f"Histogram dla {column_name}")
+        plt.ylabel("counts")
+        plt.xlabel(f"{column_name}")
+
+        plt.show()
+
 
 class PorosityApp(App):
     def build(self):

@@ -53,13 +53,22 @@
 
             BoxLayout:
                 orientation: 'horizontal'
-                size_hint: 0.5, 1
+                size_hint: 1, 1
                 pos_hint: {"center_x": 0.5, "y": 1}
                 Label:
                     size_hint: 0.3, 1
-                    text: "Wybrany plik: "
+                    text_size: self.size
+                    halign: "right"
+                    valign: "middle"
+                    text: "Wybrany plik:    "
                 Label:
                     id: filepath
+                    size_hint: .7, 1
+                    text_size: self.width, None
+                    size: self.texture_size # Those two make a string to compress during window size modification
+                    halign: "left"
+                    valign: "middle"
+
             Label:
                 text: "Wybierz algorytm, którym chcesz posortować dane:"
 
@@ -99,7 +108,7 @@
             Button:
                 size_hint: .5, 1
                 pos_hint: {"x": 0.25}
-                text: "Go back"
+                text: "Wróc"
                 on_release:
                     root.manager.current = 'welcome_screen'
                     root.manager.transition.direction = 'right'
@@ -109,7 +118,6 @@
 
 <Histogram_screen>:
     name: 'histogram_screen'
-
     on_enter:
         sorting_time.text = str(root.sort_values(root.manager.filepath, root.manager.chosen_algorithm))
 
@@ -118,26 +126,50 @@
 
         BoxLayout:
             orientation: 'vertical'
-            size_hint: 1, .2
-            pos_hint: {"y": 0.8}
-            spacing: 10
+            size_hint: 1, .5
+            pos_hint: {"y": 0.5}
+            spacing: 20
 
             Label:
-                size_hint: 1, .5
-                text_size: self.size
+                size_hint: 1, .1
+                text_size: root.width, None
+                size: self.texture_size
                 halign: "center"
                 text: "Uzyskany czas sortowania: "
-
             BoxLayout:
                 orientation: "horizontal"
+                size_hint: 1, .1
+
                 Label:
+                    size_hint: 1, 1
+                    background_color: (1,1,1,1)
                     text_size: self.size
                     halign: "right"
                     pos_hint: {"x": 0.4}
                     id: sorting_time
                 Label:
+                    size_hint: 1, 1
                     text_size: self.size
                     halign: "left"
                     text: " sek."
+            Button:
+                size_hint: .2, .1
+                pos_hint: {"x": 0.4}
+                text: "Wróc"
+                on_release:
+                    root.manager.current = 'sorting_algorithms'
+                    root.manager.transition.direction = 'right'
+
+            Button:
+                size_hint: .2, .1
+                pos_hint: {"x": 0.4}
+                text: "Rysuj histogram"
+                on_press: root.draw_hist(root.filepath, "Circ.")
+
+            Button:
+                size_hint: .2, .1
+                pos_hint: {"x": 0.4}
+                text: "Wyjdź z aplikacji"
+                on_release: exit()
 
 

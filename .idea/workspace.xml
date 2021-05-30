@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="file opening resolved">
+    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="sorting time displayed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/Porosity.kv" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/Porosity.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final_project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +54,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.splitter.proportion" value="0.21221532" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -282,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622371115350</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="sorting time displayed">
+      <created>1622383214068</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1622383214068</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -321,7 +330,8 @@
     <MESSAGE value="Update #TODO" />
     <MESSAGE value="Filepath passed betwean screens added" />
     <MESSAGE value="file opening resolved" />
-    <option name="LAST_COMMIT_MESSAGE" value="file opening resolved" />
+    <MESSAGE value="sorting time displayed" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorting time displayed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
