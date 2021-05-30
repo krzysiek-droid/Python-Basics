@@ -89,23 +89,28 @@ class Histogram_screen(Screen):
 
         if selected_algorithm == "bubble_sort":
             t0 = time.time()
+            print(f"t0 = {t0}")
             sorted_values = sad.bubble_sort(values)
         elif selected_algorithm == "merge_sort":
             t0 = time.time()
+            print(f"t0 = {t0}")
             sorted_values = sad.merge_sort(values)
         elif selected_algorithm == "insertion_sort":
             t0 = time.time()
+            print(f"t0 = {t0}")
             sorted_values = sad.insertion_sort(values)
         else:
             t0 = time.time()
+            print(f"t0 = {t0}")
             sorted_values = sad.selection_sort(values)
 
         t1 = time.time()
+        print(f"t1 = {t1}")
         sorting_time = t1 - t0
         self.sorting_time = round(sorting_time, 5)
         self.sorted = sorted_values
 
-        return self.sorting_time, self.sorted
+        return self.sorting_time
 
 class PorosityApp(App):
     def build(self):

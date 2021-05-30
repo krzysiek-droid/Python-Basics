@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="update - histogram_screen failure">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_13_01__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_13_01__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_20_35__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2021_20_35__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_05_2021_07_37__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_05_2021_07_37__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="e30df379-9a4c-4625-afc2-8df358797a5e" name="Default Changelist" comment="file opening resolved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/Porosity.kv" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/Porosity.kv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Final_project/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final_project/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Final_project/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621977871588</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="file opening resolved">
+      <created>1622371115350</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1622371115350</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -317,7 +320,8 @@
     <MESSAGE value="First screen updated" />
     <MESSAGE value="Update #TODO" />
     <MESSAGE value="Filepath passed betwean screens added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filepath passed betwean screens added" />
+    <MESSAGE value="file opening resolved" />
+    <option name="LAST_COMMIT_MESSAGE" value="file opening resolved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
