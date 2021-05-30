@@ -4,6 +4,7 @@ import pandas as pd
 import sorting_algorithms_database as sad
 import time
 from plyer import filechooser
+import os.path
 
 
 # set mean and sd
@@ -52,15 +53,25 @@ class Histogram_screen:
         return sorted
 
 
-fopen = pd.read_csv('H11_PB1.1.csv', sep=";")
-circ_values = fopen.get("Circ.")
+def load_values_from_csv(filepath, column_name):
+    filepath = filepath.encode("unicode_escape")
+    fopen = pd.read_csv(filepath, sep=";")  # check if file is seperated by ";"
+    values = fopen.get(column_name)
+    values = list(values)
+    try:
+        if type(values) == list:
+            return values
+        else:
+            raise ValueError
+    except ValueError:
+        print(f"Imported Values are not of list type, {type(values)}"
+              f"Check if a proper separator is given to the method load_values_from_csv.")
 
-print(type(circ_values))
 
-circ_values = set(circ_values)
-circ_values = list(circ_values)
 
-histogram = Histogram_screen("merge_sort")
 
-print(histogram.sort_values(circ_values))
-print(histogram.sorting_time)
+values = pd.read_csv("H11_PB1.1.csv", sep=';')
+values = values.get("Circ.")
+print(values)
+
+

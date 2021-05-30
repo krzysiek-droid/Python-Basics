@@ -35,12 +35,14 @@
                     text: "Select a file"
                     on_press:
                         root.manager.filepath = root.open_filechooser()
+                        print(f"Filepath chosen: {root.manager.filepath[0]}")
                         root.manager.current = 'sorting_algorithms'
                         root.manager.transition.direction = 'left'
 
+
 <sorting_algorithms>:
     name: "sorting_algorithms"
-    on_enter: filepath.text = root.manager.filepath
+    on_enter: filepath.text = root.manager.filepath[0]
     FloatLayout:
         pos_hint: {'center_x': .5, 'center_y': .5}
 
@@ -70,24 +72,28 @@
                 text: "Bubble sort"
                 on_release:
                     root.manager.chosen_algorithm = "bubble_sort"
+                    print(f"Chosen algorithm: {root.manager.chosen_algorithm}")
                     root.manager.current = 'histogram_screen'
                     root.manager.transition.direction = 'left'
             Button:
                 text: "Merge sort"
                 on_release:
                     root.manager.chosen_algorithm = "merge_sort"
+                    print(f"Chosen algorithm: {root.manager.chosen_algorithm}")
                     root.manager.current = 'histogram_screen'
                     root.manager.transition.direction = 'left'
             Button:
                 text: "Insertion sort"
                 on_release:
                     root.manager.chosen_algorithm = "insertion_sort"
+                    print(f"Chosen algorithm: {root.manager.chosen_algorithm}")
                     root.manager.current = 'histogram_screen'
                     root.manager.transition.direction = 'left'
             Button:
                 text: "Selection sort"
                 on_release:
                     root.manager.chosen_algorithm = "selection_sort"
+                    print(f"Chosen algorithm: {root.manager.chosen_algorithm}")
                     root.manager.current = 'histogram_screen'
                     root.manager.transition.direction = 'left'
             Button:
@@ -104,7 +110,12 @@
 <Histogram_screen>:
     name: 'histogram_screen'
 
-    on_enter: root.manager.data_array = root.sort_values(root.manager.filepath, root.manager.chosen_algorithm)
+    on_enter:
+        sorting_time = root.sort_values(root.manager.filepath, root.manager.chosen_algorithm)
 
     FloatLayout:
         pos_hint: {'center_x': .5, 'center_y': .5}
+        Label:
+            text: "blabla"
+        Label:
+            id: sorting_time

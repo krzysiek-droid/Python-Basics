@@ -1,4 +1,6 @@
 import kivy
+from kivy.config import value
+
 import sorting_algorithms_database as sad
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,12 +10,17 @@ from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 from plyer import filechooser
+import os.path
 
 # requirement for kivy version
 kivy.require("2.0.0")
 
 # Prime window character
 Window.size = (750, 500)
+
+def path_normalization(path):
+    separated_path = path.split("'\'")
+    return separated_path
 
 
 # first screen popping up when app initialized
@@ -22,7 +29,9 @@ class Welcome_screen(Screen):
         # initialized filechooser of Windows type (thanks to plyer lib.)
         path = filechooser.open_file(title="Pick a .csv file",
                                      filters=[("Comma-separated values", "*.csv")])
-        return path[0]
+        #file_opened = pd.read_csv(path[0], sep=";")
+
+        return path
 
 
 # Algorithm choice screen
@@ -48,8 +57,9 @@ class WindowManager(ScreenManager):
 
 
 def load_values_from_csv(filepath, column_name):
-    fopen = pd.read_csv(filepath, sep=";")  # check if file is seperated by ";"
-    values = fopen.get(column_name)
+    file_opened = pd.read_csv(filepath[0], sep=";")  # check if file is seperated by ";"
+    values = file_opened.get(column_name)
+    print(values)
     values = list(values)
     try:
         if type(values) == list:
@@ -60,16 +70,20 @@ def load_values_from_csv(filepath, column_name):
         print(f"Imported Values are not of list type, {type(values)}"
               f"Check if a proper separator is given to the method load_values_from_csv.")
 
+
 class Histogram_screen(Screen):
+
     def __init__(self):
-        super(Histogram_screen, self).__init__()
-        self.sorting_time = None
-        self.data = None
+        super().__init__()
+        self.sorting_time = value
+        self.sorted = value
+
 
     def sort_values(self, filepath, selected_algorithm):
 
         values = load_values_from_csv(filepath, "Circ.")
 
+        # Data preparation - removing repeated values (for histogram purposes)
         values = set(values)
         values = list(values)
 
@@ -89,12 +103,10 @@ class Histogram_screen(Screen):
         t1 = time.time()
         sorting_time = t1 - t0
         self.sorting_time = round(sorting_time, 5)
-        self.data = sorted_values
+        self.sorted = sorted_values
 
-        return self.data, self.sorting_time
+        return self.sorting_time, self.sorted
 
-
-    # App logic
 class PorosityApp(App):
     def build(self):
         screen_manager = WindowManager()
